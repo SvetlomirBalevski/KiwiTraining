@@ -1,3 +1,5 @@
+import sys
+
 def f_c(X):
     """
         The function return 4, doesn't matter how it
@@ -14,7 +16,8 @@ def f_x(x, a, b):
         return x * a + b
     except TypeError:
         print("Number should be used, not string")
-        exit()
+#        sys.exit("TypeError")
+
 
 def sum(x):
     """
@@ -29,4 +32,5 @@ def sum(x):
 #    print(f_x(1,2,4))
 #    print(sum(2))
 #    print(f_x('a',1,2))
+#    print(f_x('a', "b", 2))
 #    print(sum('a'))
