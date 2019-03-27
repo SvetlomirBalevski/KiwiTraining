@@ -1,6 +1,7 @@
 import solution
 import unittest
 
+
 class TestSolution(unittest.TestCase):
     def test_f_c(self):
         self.assertTrue(solution.f_c.__doc__)
@@ -12,7 +13,8 @@ class TestSolution(unittest.TestCase):
         for x in range(-10, 10):
             for a in range(-10, 10):
                 for b in range(-10, 10):
-                    self.assertEqual(a*x + b, solution.f_x(x, a, b))
+                    self.assertEqual(a * x + b, solution.f_x(x, a, b))
+        self.assertRaises(TypeError, "a", 1, 2)
 
     def test_sum(self):
         for x in range(-10, 10):
@@ -24,4 +26,4 @@ class TestSolution(unittest.TestCase):
 
 
 if __name__ == '__main__':
-  unittest.main()
+    unittest.main()

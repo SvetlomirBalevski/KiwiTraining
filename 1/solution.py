@@ -28,3 +28,5 @@ def sum(x):
 #    print(f_c(232))
 #    print(f_x(1,2,4))
 #    print(sum(2))
+#    print(f_x('a',1,2))
+#    print(sum('a'))
