@@ -12,11 +12,8 @@ def f_x(x, a, b):
     """
     :return: f(x) = a*x + b
     """
-    try:
-        return x * a + b
-    except TypeError:
-        print("Number should be used, not string")
-#        sys.exit("TypeError")
+
+    return x * a + b
 
 
 def sum(x):

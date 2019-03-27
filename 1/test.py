@@ -14,8 +14,6 @@ class TestSolution(unittest.TestCase):
             for a in range(-10, 10):
                 for b in range(-10, 10):
                     self.assertEqual(a * x + b, solution.f_x(x, a, b))
-        with self.assertRaises(TypeError):
-            solution.f_x(1, 2, "a")
 
 
     def test_sum(self):
