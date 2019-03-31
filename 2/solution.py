@@ -105,16 +105,13 @@ def add_fibonacci(lst):
 # Implement a function fib_exists(lst, n) which returns boolean. The function checks if the number n exists in the Fibonacci sequence lst
 
 def fib_exists(lst, n):
-
     return n in lst
 
 
 # Implement a function which_fib(lst, n) which returns integer. This is the index of the number n inside the sequence lst counting from 1.
 
 def which_fib(lst, n):
-    lst.insert(0, 0)
+    if n not in lst:
+        raise ValueError
 
-    return lst[n]
-
-# if __name__ == '__main__':
-#     print(which_fib(FIBONACCI_NUMBERS,99999))
+    return lst.index(n) + 1
