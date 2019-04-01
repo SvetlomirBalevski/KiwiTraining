@@ -111,7 +111,7 @@ def fib_exists(lst, n):
 # Implement a function which_fib(lst, n) which returns integer. This is the index of the number n inside the sequence lst counting from 1.
 
 def which_fib(lst, n):
-    if n not in lst:
-        raise ValueError
+    # if n not in lst:
+    #     raise ValueError
 
     return lst.index(n) + 1
