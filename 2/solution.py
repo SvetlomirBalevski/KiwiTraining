@@ -62,7 +62,7 @@ def ingredient_exists(ingr, dict):
 #  where eggs == 6 and butter == True. NOTE: don't change the
 # PANCAKE_INGREDIENTS constant! Use dict.copy() method!
 
-def fatten_pancakes(dict=PANCAKE_INGREDIENTS):
+def fatten_pancakes(dict):
     temp = dict.copy()
     temp.update(eggs=6, butter=True)
 
@@ -71,7 +71,7 @@ def fatten_pancakes(dict=PANCAKE_INGREDIENTS):
 
 # Implement a function add_sugar(dict) which adds 'sugar' to the list of ingredients and returns a new dictionary
 
-def add_sugar(dict=PANCAKE_INGREDIENTS):
+def add_sugar(dict):
     temp = dict.copy()
     temp.update({"sugar": 1})
 
