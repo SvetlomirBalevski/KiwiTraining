@@ -1,3 +1,6 @@
+import math
+
+
 # Sum of all digits of a number
 #
 #     Given an integer, implement a function, called sum_of_digits(n) that calculates the sum of n's digits.
@@ -20,10 +23,13 @@
 # 121 / 10 = 12 . reminder =1 ; 12 /10 = 1, reminder 2, 1 / 10 = 0, reminder = 1
 def sum_of_digits(n):
     summary = 0
-    n = -(n) if n < 0 else n
+
+    n = -n if n < 0 else n
+
     while n != 0:
         summary += n % 10
         n = n // 10
+
     return summary
 
 
@@ -38,12 +44,16 @@ def sum_of_digits(n):
 
 def to_digits(n):
     digits = []
-    n = -(n) if n < 0 else n
+
+    n = -n if n < 0 else n
+
     while n != 0:
-        digits.append(n%10)
+        digits.append(n % 10)
         n = n // 10
     digits.reverse()
+
     return digits
+
 
 # Turn a list of digits into a number
 #
@@ -67,12 +77,14 @@ def count_vowels(str):
     str = str.lower()
     sum_of_vowels = 0
     vowels = "aeiouy"
+
     for letter in str:
 
         if letter in vowels:
             sum_of_vowels += 1
 
     return sum_of_vowels
+
 
 # Consonants in a string
 #
@@ -89,10 +101,12 @@ def count_consonants(str):
     consonants = "bcdfghjklmnpqrstvwxz"
 
     for letter in str:
+
         if letter in consonants:
-            sum_of_consonants +=1
+            sum_of_consonants += 1
 
     return sum_of_consonants
+
 
 # Prime Number
 #
@@ -109,7 +123,24 @@ def count_consonants(str):
 #
 #       def prime_number(n):
 #           pass
+
+
 #
+def prime_number(n):
+    number_to_check = 1
+
+    if n == 1:
+        return True
+
+    while number_to_check < math.sqrt(n):
+
+        if n % number_to_check == 0:
+            return False
+        else:
+            number_to_check += 1
+
+    return True
+
 # Factorial Digits
 #
 #     Implement a function fact_digits(n), that takes an integer and returns the sum of the factorials of each digit of n.
@@ -122,7 +153,17 @@ def count_consonants(str):
 #           pass
 #
 #     Hint - use the functions that you have defined previously. What other functions do you need ?
-#
+
+def fact_digits(n):
+    list_of_digits = to_digits(n)
+    sum = 0
+
+    for digit in list_of_digits:
+        sum += math.factorial(digit)
+
+    return sum
+
+
 # First nth members of Fibonacci
 #
 #     Implement a function, called fibonacci(n) that returns a list with the first n members of the Fibonacci sequence.
@@ -132,6 +173,16 @@ def count_consonants(str):
 #       def fibonacci(n):
 #           pass
 #
+
+def fibonacci(n):
+    fibon = [0 , 1]
+
+    for i in range (2 , n):
+        fibon [i] = fibon[i-1]+ fibon[i-2]
+    fibon.pop(0)
+    return fibon
+
+
 # Fibonacci number
 #
 #     Implement a function, called fib_number(n), which takes an integer n and returns a number, which is formed by concatenating the first n Fibonacci numbers. For example, if n = 3, the result is 112.
@@ -166,4 +217,4 @@ def count_consonants(str):
 # TIP: Use test.py to validate your solution is correct.
 
 if __name__ == '__main__':
-    count_vowels("Python")
+    print(fibonacci(10))
