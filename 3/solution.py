@@ -134,7 +134,7 @@ def prime_number(n):
 
     while number_to_check < math.sqrt(n):
 
-        if n % number_to_check == 0:
+        if  number_to_check % n == 0:
             return False
         else:
             number_to_check += 1
@@ -175,10 +175,12 @@ def fact_digits(n):
 #
 
 def fibonacci(n):
+    if n == 1:
+        return [1]
     fibon = [0 , 1]
 
-    for i in range (2 , n):
-        fibon [i] = fibon[i-1]+ fibon[i-2]
+    for i in range (2 , n +1):
+        fibon.append(fibon[i-1]+ fibon[i-2])
     fibon.pop(0)
     return fibon
 
@@ -217,4 +219,5 @@ def fibonacci(n):
 # TIP: Use test.py to validate your solution is correct.
 
 if __name__ == '__main__':
-    print(fibonacci(10))
+    for i in range (1,100):
+        print(prime_number(i))
