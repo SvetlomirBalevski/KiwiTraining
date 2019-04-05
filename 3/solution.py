@@ -248,7 +248,27 @@ def palindrome(n):
 #       def char_histogram(string):
 #           pass
 #
+
+def char_histogram(string):
+
+    result = {}
+    length = len(string)
+
+    for i in range (0, length):
+        result[string[i]] = find_occurance(string,string[i])
+
+    return result
+
+def find_occurance(str, value_to_check):
+    length = len(str)
+    result = 0
+
+    for i in range (0, length):
+        if str[i] == value_to_check:
+            result +=1
+
+    return result
+
+
 # TIP: Use test.py to validate your solution is correct.
 
-# if __name__ == '__main__':
-#     print(palindrome("kak"))
