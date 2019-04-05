@@ -125,21 +125,23 @@ def count_consonants(str):
 #           pass
 
 
-#
 def prime_number(n):
-    number_to_check = 1
+    number_to_check =2
 
     if n == 1:
         return True
 
-    while number_to_check < math.sqrt(n):
+    isPrime = True
 
-        if  number_to_check % n == 0:
-            return False
+    while number_to_check < n/2:
+
+        if  n % number_to_check == 0:
+            isPrime = False
+            break
         else:
             number_to_check += 1
 
-    return True
+    return isPrime
 
 # Factorial Digits
 #
@@ -218,6 +220,6 @@ def fibonacci(n):
 #
 # TIP: Use test.py to validate your solution is correct.
 
-if __name__ == '__main__':
-    for i in range (1,100):
-        print(prime_number(i))
+# if __name__ == '__main__':
+#     for i in range (1,100):
+#         print(prime_number(i))
