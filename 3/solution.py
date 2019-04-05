@@ -184,7 +184,7 @@ def fibonacci(n):
     for i in range (2 , n +1):
         fibon.append(fibon[i-1]+ fibon[i-2])
     fibon.pop(0)
-    
+
     return fibon
 
 
@@ -212,7 +212,8 @@ def fib_number(n):
 
 # Palindrome
 #
-#     Implement a function, called palindrome(obj), which takes a number or a string and checks if it is a representation is a palindrome. For example, the integer 121 and the string "kapak" are palindromes. The function should work with both.
+#     Implement a function, called palindrome(obj), which takes a number or a string and checks if it is a representation is a palindrome.
+#     For example, the integer 121 and the string "kapak" are palindromes. The function should work with both.
 #
 #     Hint - check Python's str() function
 #
@@ -220,7 +221,18 @@ def fib_number(n):
 #
 #       def palindrome(n):
 #           pass
-#
+
+def palindrome(n):
+    strin = str(n)
+
+    length = len(strin)
+    for i in range (0, length):
+        if strin[i] != strin[length-1-i]:
+            return False
+
+    return True
+
+
 # Char Histogram
 #
 #     Implement a funcion, called char_histogram(string), which takes a string and returns a dictionary, where each key is a character from string and its value is the number of occurrences of that char in string.
@@ -233,4 +245,4 @@ def fib_number(n):
 # TIP: Use test.py to validate your solution is correct.
 
 # if __name__ == '__main__':
-#     print(fib_number(10))
+#     print(palindrome("kak"))
