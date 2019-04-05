@@ -184,12 +184,14 @@ def fibonacci(n):
     for i in range (2 , n +1):
         fibon.append(fibon[i-1]+ fibon[i-2])
     fibon.pop(0)
+    
     return fibon
 
 
 # Fibonacci number
 #
-#     Implement a function, called fib_number(n), which takes an integer n and returns a number, which is formed by concatenating the first n Fibonacci numbers. For example, if n = 3, the result is 112.
+#     Implement a function, called fib_number(n), which takes an integer n and returns a number, which is formed by concatenating
+#   the first n Fibonacci numbers. For example, if n = 3, the result is 112.
 #
 #     Signature
 #
@@ -197,7 +199,17 @@ def fibonacci(n):
 #           pass
 #
 #     Hint - use the functions that you have defined previously. What other functions do you need?
-#
+
+def fib_number(n):
+    listWithResults = fibonacci(n)
+
+    result = ""
+
+    for number in listWithResults:
+        result = result+ str(number)
+
+    return int(result)
+
 # Palindrome
 #
 #     Implement a function, called palindrome(obj), which takes a number or a string and checks if it is a representation is a palindrome. For example, the integer 121 and the string "kapak" are palindromes. The function should work with both.
@@ -221,5 +233,4 @@ def fibonacci(n):
 # TIP: Use test.py to validate your solution is correct.
 
 # if __name__ == '__main__':
-#     for i in range (1,100):
-#         print(prime_number(i))
+#     print(fib_number(10))
