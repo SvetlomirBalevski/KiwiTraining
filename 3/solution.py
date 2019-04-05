@@ -61,8 +61,14 @@ def to_digits(n):
 #
 #     Signature
 #
-#       def to_number(digits):
-#           pass
+
+def to_number(digits):
+    result = ""
+
+    for digit in digits:
+        result += str(digit)
+    return int(result)
+
 #
 # Vowels in a string
 #
