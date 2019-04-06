@@ -24,7 +24,7 @@ import math
 def sum_of_digits(n):
     summary = 0
 
-    n = -n if n < 0 else n
+    n = abs(n)
 
     while n != 0:
         summary += n % 10
