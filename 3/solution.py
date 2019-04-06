@@ -63,11 +63,13 @@ def to_digits(n):
 #
 
 def to_number(digits):
-    result = ""
 
-    for digit in digits:
-        result += str(digit)
-    return int(result)
+    return int("".join(map(str, digits)))
+    # result = ""
+    # for digit in digits:
+    #     result += str(digit)
+    #
+    # return int(result)
 
 #
 # Vowels in a string
@@ -216,14 +218,11 @@ def fibonacci(n):
 #     Hint - use the functions that you have defined previously. What other functions do you need?
 
 def fib_number(n):
+
     listWithResults = fibonacci(n)
 
-    result = ""
+    return int("".join(map(str,listWithResults)))
 
-    for number in listWithResults:
-        result = result+ str(number)
-
-    return int(result)
 
 # Palindrome
 #
@@ -280,4 +279,5 @@ def find_occurance(str, value_to_check):
 
 
 # TIP: Use test.py to validate your solution is correct.
-
+if __name__ == '__main__':
+    print(fib_number(10))
