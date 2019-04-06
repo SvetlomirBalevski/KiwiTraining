@@ -177,7 +177,7 @@ def find_factorial(n):
 
     while (i <= n):
         result *= i
-        i +=1
+        i += 1
 
     return result
 
@@ -192,13 +192,13 @@ def find_factorial(n):
 #
 
 def fibonacci(n):
+
     if n == 1:
         return [1]
-    fibon = [0 , 1]
+    fibon = [1 , 1]
 
-    for i in range (2 , n +1):
+    for i in range (2 , n):
         fibon.append(fibon[i-1]+ fibon[i-2])
-    fibon.pop(0)
 
     return fibon
 
