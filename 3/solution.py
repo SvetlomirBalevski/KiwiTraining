@@ -65,6 +65,7 @@ def to_digits(n):
 def to_number(digits):
 
     return int("".join(map(str, digits)))
+
     # result = ""
     # for digit in digits:
     #     result += str(digit)
@@ -249,7 +250,8 @@ def palindrome(n):
 
 # Char Histogram
 #
-#     Implement a funcion, called char_histogram(string), which takes a string and returns a dictionary, where each key is a character from string and its value is the number of occurrences of that char in string.
+#     Implement a funcion, called char_histogram(string), which takes a string and returns a dictionary, where each key is a character from
+#     string and its value is the number of occurrences of that char in string.
 #
 #     Signature
 #
@@ -258,26 +260,39 @@ def palindrome(n):
 #
 
 def char_histogram(string):
-
     result = {}
     length = len(string)
 
-    for i in range (0, length):
-        result[string[i]] = find_occurance(string,string[i])
+    for i in range(0, length):
+
+        if string[i] not in result:
+            result[string[i]] = 1
+        else:
+            result[string[i]] += 1
 
     return result
 
-def find_occurance(str, value_to_check):
-    length = len(str)
-    result = 0
-
-    for i in range (0, length):
-        if str[i] == value_to_check:
-            result +=1
-
-    return result
+# def char_histogram(string):
+#
+#     result = {}
+#     length = len(string)
+#
+#     for i in range (0, length):
+#         result[string[i]] = find_occurance(string,string[i])
+#
+#     return result
+#
+# def find_occurance(str, value_to_check):
+#     length = len(str)
+#     result = 0
+#
+#     for i in range (0, length):
+#         if str[i] == value_to_check:
+#             result +=1
+#
+#     return result
 
 
 # TIP: Use test.py to validate your solution is correct.
-if __name__ == '__main__':
-    print(fib_number(10))
+
+
