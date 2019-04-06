@@ -1,5 +1,5 @@
 import math
-
+from functools import reduce
 
 # Sum of all digits of a number
 #
@@ -64,14 +64,20 @@ def to_digits(n):
 
 def to_number(digits):
 
-    return int("".join(map(str, digits)))
+    #return sum(d * 10**i for i, d in enumerate(digits[::-1]))
+    #return int("".join(map(str, digits)))
 
-    # result = ""
-    # for digit in digits:
-    #     result += str(digit)
-    #
-    # return int(result)
+    def combine(x, y):
+        temp = y
+        if (temp == 0):
+            return x * 10
 
+        while (temp > 0):
+            x *= 10
+            temp //= 10
+        return x + y
+
+    return reduce(combine, digits)
 #
 # Vowels in a string
 #
@@ -222,8 +228,7 @@ def fib_number(n):
 
     listWithResults = fibonacci(n)
 
-    return int("".join(map(str,listWithResults)))
-
+    return to_number(listWithResults)
 
 # Palindrome
 #
