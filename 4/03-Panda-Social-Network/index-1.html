@@ -1,0 +1,67 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unknown </title></head><body>
+<p>We are going to make a social network for Pandas</p>
+<p>This is the next big thing. We promise!</p>
+<h1 id="panda">Panda</h1>
+<p>For our social network, we are going to need a <code>Panda</code> class which behaves like that:</p>
+<p>```python
+ivo = Panda("Ivo", "ivo@pandamail.com", "male")</p>
+<p>ivo.name() == "Ivo" # True
+ivo.email() == "ivo@pandamail.com"  # True
+ivo.gender() == "male" # True
+ivo.isMale() == True # True
+ivo.isFemale() == False # True
+```</p>
+<p>The <code>Panda</code> class also should be possible to:</p>
+<ul>
+<li>Be turned into a string</li>
+<li>Be hashed and used as a key in a dictionary (<code>__eq__</code> and <code>__hash__</code>)</li>
+<li>Make sure that the email is a valid email!</li>
+</ul>
+<p>Two <code>Panda</code> instances are equal if they have matching <code>name</code>, <code>email</code> and <code>gender</code> attributes.</p>
+<h1 id="socialnetwork">SocialNetwork</h1>
+<p>Now it is time for our social network!</p>
+<p>Implement a class, called <code>PandaSocialNetwork</code>, which has the following public methods:</p>
+<ul>
+<li><code>add_panda(panda)</code> - this method adds a panda to the social network. The panda has 0 friends for now.
+If the panda is already in the network, raise a <code>PandaAlreadyThere</code> error.</li>
+<li><code>has_panda(panda)</code> - returns <code>True</code> or <code>False</code> if the panda is in the network or not.</li>
+<li><code>make_friends(panda1, panda2)</code> - makes the two pandas friends. Raise <code>PandasAlreadyFriends</code> if they are already friends.
+The friendship is two-ways - <code>panda1</code> is a friend with <code>panda2</code> and <code>panda2</code> is a friend with <code>panda1</code>.
+If <code>panda1</code> or <code>panda2</code> are not members of the network, add them!</li>
+<li><code>are_friends(panda1, panda2)</code> - returns <code>True</code> if the pandas are friends. Otherwise, <code>False</code></li>
+<li><code>friends_of(panda)</code> - returns a list of <code>Panda</code> with the friends of the given panda.
+Returns <code>False</code> if the panda is not a member of the network.</li>
+</ul>
+<h1 id="extra-homework">Extra homework</h1>
+<ul>
+<li><code>connection_level(panda1, panda2)</code> - returns the connection level between <code>panda1</code> and <code>panda2</code>.
+   If they are friends, the level is 1. Otherwise, count the number of friends you need to go
+  through from <code>panda1</code> in order to get to <code>panda2</code>.
+  If they are not connected at all, return -1!
+  Return <code>False</code> if one of the pandas are not member of the network.</li>
+<li><code>are_connected(panda1, panda2)</code> - return <code>True</code> if the pandas are connected somehow, between friends, or <code>False</code> otherwise.</li>
+<li><code>how_many_gender_in_network(level, panda, gender)</code> - returns the number of pandas with <code>gender</code> (male of female) that
+  are in the network of <code>panda</code>, while counting <code>level</code> levels deep.
+  If level == 2, we will have to look in all friends of <code>panda</code> and all of their friends too...</li>
+</ul>
+<p><strong>NOTE 1:</strong> the above 3 methods are recursive! For more info on recursions see:
+http://www.python-course.eu/recursive_functions.php</p>
+<p><strong>NOTE 2:</strong> each recursive function can be rewriten in iterative way. Which one is easier and
+more readable/simple depends on the particular problem domain. </p>
+<p><strong>NOTE 3:</strong> during testing we don't need to use recursion. If we do then maybe we're
+doing something wrong!</p>
+<p>An example</p>
+<p>```python
+network = PandaSocialNetwork()
+ivo = Panda("Ivo", "ivo@pandamail.com", "male")
+rado = Panda("Rado", "rado@pandamail.com", "male")
+tony = Panda("Tony", "tony@pandamail.com", "female")</p>
+<p>for panda in [ivo, rado, tony]:
+    network.add(panda)</p>
+<p>network.make_friends(ivo, rado)
+network.make_friends(rado, tony)</p>
+<p>network.connection_level(ivo, rado) == 1 # True
+network.connection_level(ivo, tony) == 2 # True</p>
+<p>network.how_many_gender_in_network(1, rado, "female") == 1 # True
+```</p>
+</body></html>
