@@ -122,6 +122,8 @@ class BatchBill:
 
         return total_bills
 
+    def __getitem__(self, index):
+        return self.Bills[index]
 
 # ## The CashDesk classs
 #
@@ -158,9 +160,5 @@ class BatchBill:
 
 class CashDesk:
     def __init__(self):
-        pass
+        self
 
-
-if __name__ == '__main__':
-    t = Bill(5)
-    print(int(t))
