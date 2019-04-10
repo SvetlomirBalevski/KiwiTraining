@@ -43,7 +43,6 @@
 
 class Bill:
 
-
     def __init__(self, ammount):
         self.ammount = ammount
 
@@ -64,6 +63,7 @@ class Bill:
 
     def __repr__(self):
         return "A {0}$ bill".format(self.ammount)
+
 
 #
 # ## The BatchBill class
@@ -107,8 +107,20 @@ class Bill:
 #
 
 class BatchBill:
+
     def __init__(self, Bills):
         self.Bills = Bills
+
+    def __len__(self):
+        return len(self.Bills)
+
+    def total(self):
+        total_bills = 0
+
+        for bill in self.Bills:
+            total_bills += bill.ammount
+
+        return total_bills
 
 
 # ## The CashDesk classs
@@ -148,6 +160,7 @@ class CashDesk:
     def __init__(self):
         pass
 
+
 if __name__ == '__main__':
-    t = Bill (5)
+    t = Bill(5)
     print(int(t))
