@@ -64,6 +64,8 @@ class Bill:
     def __repr__(self):
         return "A {0}$ bill".format(self.ammount)
 
+    def __hash__(self):
+        return self.ammount
 
 #
 # ## The BatchBill class
@@ -125,6 +127,7 @@ class BatchBill:
     def __getitem__(self, index):
         return self.Bills[index]
 
+
 # ## The CashDesk classs
 #
 # Finally, implement a `CashDesk` class, which has the following methods:
@@ -160,5 +163,35 @@ class BatchBill:
 
 class CashDesk:
     def __init__(self):
-        self
+        self.inside = {}
 
+    def take_money(self, money):
+        if type(money) is Bill and money in self.inside:
+            self.inside[money.ammount] +=1
+
+        elif type(money) is Bill:
+            self.inside.update({money.ammount : 1})
+
+        elif type(money) is BatchBill:
+            for single_bill in money:
+                if single_bill.ammount in self.inside:
+                    self.inside[single_bill.ammount]+=1
+                else:
+                    self.inside.update({single_bill.ammount : 1})
+                # self.inside[single_bill.ammount] += 1 if (single_bill in self.inside) else self.inside.update({single_bill.ammount : 1})
+
+    def total(self):
+        total = 0
+        for value in self.inside:
+            total += self.inside[value] * value
+        return total
+
+    def inspect(self):
+        response_first_line = "We have a total of {0}$ in the desk".format(self.total())
+        response_second_line = "We have the following count of bills, sorted in ascending order:"
+        response_third_line=""
+        for i in self.inside:
+            response_third_line += "{0}$ bills - {1}\n".format(i, self.inside[i])
+
+        new_line = "\n"
+        return response_first_line + new_line+ response_second_line + new_line + response_third_line
