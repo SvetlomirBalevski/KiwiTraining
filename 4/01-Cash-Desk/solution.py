@@ -41,6 +41,9 @@
 # print(money_holder) # { "A 10$ bill": 2 }
 # ```
 
+import collections
+
+
 class Bill:
 
     def __init__(self, ammount):
@@ -107,6 +110,7 @@ class Bill:
 #     pass
 # ```
 #
+
 
 class BatchBill:
 
@@ -178,7 +182,6 @@ class CashDesk:
                     self.inside[single_bill.ammount]+=1
                 else:
                     self.inside.update({single_bill.ammount : 1})
-                # self.inside[single_bill.ammount] += 1 if (single_bill in self.inside) else self.inside.update({single_bill.ammount : 1})
 
     def total(self):
         total = 0
@@ -189,9 +192,15 @@ class CashDesk:
     def inspect(self):
         response_first_line = "We have a total of {0}$ in the desk".format(self.total())
         response_second_line = "We have the following count of bills, sorted in ascending order:"
+        sorted_inside = collections.OrderedDict(sorted(self.inside.items()))
+
         response_third_line=""
-        for i in self.inside:
-            response_third_line += "{0}$ bills - {1}\n".format(i, self.inside[i])
+
+        for i in sorted_inside:
+            response_third_line += "{0}$ bills - {1}\n".format(i, sorted_inside[i])
 
         new_line = "\n"
+
+        response_third_line = response_third_line[:-1] # remove last new line from the string
+
         return response_first_line + new_line+ response_second_line + new_line + response_third_line
