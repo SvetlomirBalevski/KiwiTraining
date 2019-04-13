@@ -75,46 +75,70 @@ class BankAccount:
 
     def __init__(self, name, balance, currency):
         self.name = name
-        self.balance = balance
+        self._balance = balance
         self.currency = currency
         self.log = ["Account was created"]
+        self.names = []
 
         if balance < 0:
             raise ValueError("Negative balance")
 
+        if currency == "":
+            raise ValueError
+
+        if name == "":
+            raise ValueError
+
+        if name in self.names:
+            raise ValueError ("Name not unique")
+        self.names.append(name)
+
     def deposit(self, amount):
 
-        if amount < 0:
+        if amount <= 0:
             raise ValueError("Negative amount")
 
-        self.balance += amount
+        self._balance += amount
         self.log.append("Deposited {0}$".format(amount))
 
     def balance(self):
 
-        self.log.append("Balance check -> {0}$".format(self.balance))
+        self.log.append("Balance check -> {0}$".format(self._balance))
 
-        return self.balance
+        return self._balance
 
     def withdraw(self, amount):
-        if amount > self.balance:
+        if amount > self._balance:
             self.log.append("Withdraw for {0}$ failed.".format(amount))
 
             return False
         else:
             self.log.append("{0}$ was withdrawn".format(amount))
-            self.balance -= amount
+            self._balance -= amount
 
             return True
 
     def __str__(self):
-        return "Bank account for {0} with balance of {1}{2}".format(self.name, self.balance, self.currency)
+        return "Bank account for {0} with balance of {1}{2}".format(self.name, self._balance, self.currency)
 
     def __int__(self):
-        self.log.append("__int__ check -> {0}$".format(self.balance))
+        self.log.append("__int__ check -> {0}$".format(self._balance))
 
-        return self.balance
+        return self._balance
 
     def history(self):
 
         return self.log
+
+    def transfer_to(self, account, amount):
+        if account.currency != self.currency:
+            raise TypeError
+        
+        elif amount > 0:
+            self.withdraw(amount)
+            account.deposit(amount)
+        elif amount<= 0:
+            self.deposit(amount)
+            amount.withdraw(amount)
+
+        return True
