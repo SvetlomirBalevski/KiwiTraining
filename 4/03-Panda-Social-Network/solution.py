@@ -60,7 +60,7 @@ class Panda:
             return False
 
     def __hash__(self):
-        return hash(self.name(),self.email(),self.gender())
+        return hash((self.name(),self.email(),self.gender()))
 
     def __str__(self):
         return f"This is {self.name()}, with email of {self.email()} and gender {self.gender()}"
@@ -85,11 +85,12 @@ class PandaSocialNetwork:
 
     def __init__(self):
         self.members = []
+        self.list_of_friendships = {}
 
     def add_panda(self,panda):
         if self.has_panda(panda):
             raise ValueError("PandaAlreadyThere")
-        
+
         else:
             self.members.append(panda)
 
@@ -98,4 +99,27 @@ class PandaSocialNetwork:
             return True
         else:
             return False
+
+    def make_friends(self,panda1, panda2):
+        if not self.has_panda(panda1):
+            self.add_panda(panda1)
+            self.list_of_friendships.update({panda1 : []})
+        if not self.has_panda(panda2):
+            self.add_panda(panda2)
+            self.list_of_friendships.update({panda2: []})
+        if panda2 in self.list_of_friendships[panda1]:
+            raise ValueError ("PandasAlreadyFriends")
+        else:
+            self.list_of_friendships[panda1].append(panda2)
+            self.list_of_friendships[panda2].append(panda1)
+    def are_friends(self,panda1, panda2):
+        if panda2 in self.list_of_friendships[panda1]:
+            return True
+        else:
+            return False
+
+    def friends_of(self,panda):
+        if panda not in self.list_of_friendships:
+            return False
+        return self.list_of_friendships[panda]
 
