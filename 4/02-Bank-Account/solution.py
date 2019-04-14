@@ -75,10 +75,9 @@ class BankAccount:
 
     def __init__(self, name, balance, currency):
         self.name = name
-        self._balance = balance
+        self._balance = balance # Property should be named balance and method should be Balance, but a rewrite of test.py will be needed
         self.currency = currency
         self.log = ["Account was created"]
-        self.names = []
 
         if balance < 0:
             raise ValueError("Negative balance")
@@ -89,9 +88,6 @@ class BankAccount:
         if name == "":
             raise ValueError
 
-        if name in self.names:
-            raise ValueError ("Name not unique")
-        self.names.append(name)
 
     def deposit(self, amount):
 
@@ -110,7 +106,6 @@ class BankAccount:
     def withdraw(self, amount):
         if amount > self._balance:
             self.log.append("Withdraw for {0}$ failed.".format(amount))
-
             return False
         else:
             self.log.append("{0}$ was withdrawn".format(amount))
@@ -133,12 +128,22 @@ class BankAccount:
     def transfer_to(self, account, amount):
         if account.currency != self.currency:
             raise TypeError
-        
-        elif amount > 0:
-            self.withdraw(amount)
-            account.deposit(amount)
-        elif amount<= 0:
-            self.deposit(amount)
-            amount.withdraw(amount)
+        if amount < 0:
+            raise ValueError
+        else:
+            if self.balance() < amount:
+                raise ValueError("Not enough money for transfer")
+            else:
+                self._balance -= amount
+                account._balance += amount
+                self.log.append("Transfer to {0} for {1}{2}".format(account.name,amount,account.currency))
+                account.log.append("Transfer from {0} for {1}{2}".format(self.name, amount, account.currency))
+
+        # elif amount > 0:
+        #     self.withdraw(amount)
+        #     account.deposit(amount)
+        # elif amount <= 0:
+        #     self.deposit(amount)
+        #     amount.withdraw(amount)
 
         return True
