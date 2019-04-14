@@ -84,7 +84,6 @@ class Panda:
 class PandaSocialNetwork:
 
     def __init__(self):
-        self.members = []
         self.list_of_friendships = {}
 
     def add_panda(self,panda):
@@ -92,10 +91,10 @@ class PandaSocialNetwork:
             raise ValueError("PandaAlreadyThere")
 
         else:
-            self.members.append(panda)
+            self.list_of_friendships.update({panda : []})
 
     def has_panda(self,panda):
-        if panda in self.members:
+        if panda in self.list_of_friendships:
             return True
         else:
             return False
@@ -104,14 +103,17 @@ class PandaSocialNetwork:
         if not self.has_panda(panda1):
             self.add_panda(panda1)
             self.list_of_friendships.update({panda1 : []})
+
         if not self.has_panda(panda2):
             self.add_panda(panda2)
             self.list_of_friendships.update({panda2: []})
+
         if panda2 in self.list_of_friendships[panda1]:
             raise ValueError ("PandasAlreadyFriends")
         else:
             self.list_of_friendships[panda1].append(panda2)
             self.list_of_friendships[panda2].append(panda1)
+
     def are_friends(self,panda1, panda2):
         if panda2 in self.list_of_friendships[panda1]:
             return True
