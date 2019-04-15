@@ -26,13 +26,14 @@ import re
 class Panda:
     def __init__(self, name, email, gender):
         self._name = name
-        self._email = email
         self._gender = gender
 
         email_match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email)
 
         if email_match == None:
             raise ValueError('Wrong email')
+
+        self._email = email
 
     def name(self):
         return self._name
@@ -44,20 +45,14 @@ class Panda:
         return self._gender
 
     def isMale(self):
-        if self._gender == "male":
-            return True
-        else:
-            return False
+        return self._gender == "male"
 
     def isFemale(self):
-        result = self.isMale()
-        return not result
+        return not self.isMale()
 
     def __eq__(self, other):
-        if self.gender() == other.gender() and self.name() == other.name() and self.email() == other.email():
-            return True
-        else:
-            return False
+        return self.gender() == other.gender() and self.name() == other.name() and self.email() == other.email()
+
 
     def __hash__(self):
         return hash((self.name(),self.email(),self.gender()))
@@ -94,10 +89,7 @@ class PandaSocialNetwork:
             self.list_of_friendships.update({panda : []})
 
     def has_panda(self,panda):
-        if panda in self.list_of_friendships:
-            return True
-        else:
-            return False
+        return panda in self.list_of_friendships
 
     def make_friends(self,panda1, panda2):
         if not self.has_panda(panda1):
@@ -115,13 +107,22 @@ class PandaSocialNetwork:
             self.list_of_friendships[panda2].append(panda1)
 
     def are_friends(self,panda1, panda2):
-        if panda2 in self.list_of_friendships[panda1]:
-            return True
-        else:
-            return False
+        return panda2 in self.list_of_friendships[panda1]
 
-    def friends_of(self,panda):
+    def friends_of(self, panda):
         if panda not in self.list_of_friendships:
             return False
         return self.list_of_friendships[panda]
+
+# # Extra homework
+#
+# * `connection_level(panda1, panda2)` - returns the connection level between `panda1` and `panda2`.
+#    If they are friends, the level is 1. Otherwise, count the number of friends you need to go
+#   through from `panda1` in order to get to `panda2`.
+#   If they are not connected at all, return -1!
+#   Return `False` if one of the pandas are not member of the network.
+# * `are_connected(panda1, panda2)` - return `True` if the pandas are connected somehow, between friends, or `False` otherwise.
+# * `how_many_gender_in_network(level, panda, gender)` - returns the number of pandas with `gender` (male of female) that
+#   are in the network of `panda`, while counting `level` levels deep.
+#   If level == 2, we will have to look in all friends of `panda` and all of their friends too...
 
