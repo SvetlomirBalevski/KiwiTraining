@@ -46,7 +46,7 @@ class Bill:
 
     def __init__(self, ammount):
 
-        if type(ammount) is not int:
+        if not isinstance(ammount, int):
             raise TypeError
 
         if ammount < 0:
@@ -65,6 +65,7 @@ class Bill:
 
     def __hash__(self):
         return hash(self.ammount)
+
 
 #
 # ## The BatchBill class
@@ -166,18 +167,18 @@ class CashDesk:
         self.inside = {}
 
     def take_money(self, money):
-        if type(money) is Bill and money in self.inside:
-            self.inside[money.ammount] +=1
+        if isinstance(money, Bill) and money in self.inside:
+            self.inside[money.ammount] += 1
 
-        elif type(money) is Bill:
-            self.inside.update({money.ammount : 1})
+        elif isinstance(money, Bill):
+            self.inside.update({money.ammount: 1})
 
-        elif type(money) is BatchBill:
+        elif isinstance(money, BatchBill):
             for single_bill in money:
                 if single_bill.ammount in self.inside:
-                    self.inside[single_bill.ammount]+=1
+                    self.inside[single_bill.ammount] += 1
                 else:
-                    self.inside.update({single_bill.ammount : 1})
+                    self.inside.update({single_bill.ammount: 1})
 
     def total(self):
         total = 0
@@ -191,13 +192,13 @@ class CashDesk:
 
         sorted_inside = sorted(self.inside.items())
 
-        response_third_line=""
+        response_third_line = ""
 
         for cash in sorted_inside:
             response_third_line += "{0}$ bills - {1}\n".format(cash[0], cash[1])
 
         new_line = "\n"
 
-        response_third_line = response_third_line[:-1] # remove last new line from the string
+        response_third_line = response_third_line[:-1]  # remove last new line from the string
 
-        return response_first_line + new_line+ response_second_line + new_line + response_third_line
+        return response_first_line + new_line + response_second_line + new_line + response_third_line
