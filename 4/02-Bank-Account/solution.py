@@ -91,13 +91,14 @@ class BankAccount:
         self.currency = currency
         self.log = ["Account was created"]
 
-    def deposit(self, amount):
+    def deposit(self, amount, to_add_to_history= True):
 
         if amount <= 0:
             raise ValueError("Negative amount")
 
         self._balance += amount
-        self.log.append("Deposited {0}$".format(amount))
+        if to_add_to_history:
+            self.log.append("Deposited {0}$".format(amount))
 
     def balance(self):
 
@@ -105,12 +106,14 @@ class BankAccount:
 
         return self._balance
 
-    def withdraw(self, amount):
+    def withdraw(self, amount, to_add_to_history = True):
         if amount > self._balance:
-            self.log.append("Withdraw for {0}$ failed.".format(amount))
-            return False
+            if to_add_to_history:
+                self.log.append("Withdraw for {0}$ failed.".format(amount))
+                return False
         else:
-            self.log.append("{0}$ was withdrawn".format(amount))
+            if to_add_to_history:
+                self.log.append("{0}$ was withdrawn".format(amount))
             self._balance -= amount
 
             return True
@@ -126,6 +129,20 @@ class BankAccount:
     def history(self):
 
         return self.log
+    #
+    # def transfer_to(self, account, amount):
+    #     if account.currency != self.currency:
+    #         raise TypeError
+    #     if amount < 0:
+    #         raise ValueError
+    #     else:
+    #         if self.balance() < amount:
+    #             raise ValueError("Not enough money for transfer")
+    #         else:
+    #             self._balance -= amount
+    #             account._balance += amount
+    #             self.log.append("Transfer to {0} for {1}{2}".format(account.name, amount, account.currency))
+    #             account.log.append("Transfer from {0} for {1}{2}".format(self.name, amount, account.currency))
 
     def transfer_to(self, account, amount):
         if account.currency != self.currency:
@@ -136,8 +153,9 @@ class BankAccount:
             if self.balance() < amount:
                 raise ValueError("Not enough money for transfer")
             else:
-                self._balance -= amount
-                account._balance += amount
+                self.withdraw(amount, False)
+                account.deposit(amount, False)
+
                 self.log.append("Transfer to {0} for {1}{2}".format(account.name, amount, account.currency))
                 account.log.append("Transfer from {0} for {1}{2}".format(self.name, amount, account.currency))
 
