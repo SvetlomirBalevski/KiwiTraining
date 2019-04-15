@@ -41,8 +41,6 @@
 # print(money_holder) # { "A 10$ bill": 2 }
 # ```
 
-import collections
-
 
 class Bill:
 
@@ -190,13 +188,13 @@ class CashDesk:
     def inspect(self):
         response_first_line = "We have a total of {0}$ in the desk".format(self.total())
         response_second_line = "We have the following count of bills, sorted in ascending order:"
-        
-        sorted_inside = collections.OrderedDict(sorted(self.inside.items()))
+
+        sorted_inside = sorted(self.inside.items())
 
         response_third_line=""
 
-        for i in sorted_inside:
-            response_third_line += "{0}$ bills - {1}\n".format(i, sorted_inside[i])
+        for cash in sorted_inside:
+            response_third_line += "{0}$ bills - {1}\n".format(cash[0], cash[1])
 
         new_line = "\n"
 
