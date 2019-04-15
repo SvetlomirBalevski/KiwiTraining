@@ -74,20 +74,22 @@
 class BankAccount:
 
     def __init__(self, name, balance, currency):
-        self.name = name
-        self._balance = balance # Property should be named balance and method should be Balance, but a rewrite of test.py will be needed
-        self.currency = currency
-        self.log = ["Account was created"]
-
-        if balance < 0:
-            raise ValueError("Negative balance")
-
-        if currency == "":
-            raise ValueError
 
         if name == "":
             raise ValueError
 
+        self.name = name
+
+        if balance < 0:
+            raise ValueError("Negative balance")
+
+        self._balance = balance  # Property should be named balance and method should be Balance, but a rewrite of test.py will be needed
+
+        if currency == "":
+            raise ValueError
+
+        self.currency = currency
+        self.log = ["Account was created"]
 
     def deposit(self, amount):
 
@@ -136,14 +138,7 @@ class BankAccount:
             else:
                 self._balance -= amount
                 account._balance += amount
-                self.log.append("Transfer to {0} for {1}{2}".format(account.name,amount,account.currency))
+                self.log.append("Transfer to {0} for {1}{2}".format(account.name, amount, account.currency))
                 account.log.append("Transfer from {0} for {1}{2}".format(self.name, amount, account.currency))
-
-        # elif amount > 0:
-        #     self.withdraw(amount)
-        #     account.deposit(amount)
-        # elif amount <= 0:
-        #     self.deposit(amount)
-        #     amount.withdraw(amount)
 
         return True
