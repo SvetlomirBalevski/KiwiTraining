@@ -47,7 +47,6 @@ import collections
 class Bill:
 
     def __init__(self, ammount):
-        self.ammount = ammount
 
         if type(ammount) is not int:
             raise TypeError
@@ -55,20 +54,19 @@ class Bill:
         if ammount < 0:
             raise ValueError
 
+        self.ammount = ammount
+
     def __int__(self):
         return self.ammount
 
     def __eq__(self, other):
-        if self.ammount == other.ammount:
-            return True
-        else:
-            return False
+        return self.ammount == other.ammount
 
     def __repr__(self):
         return "A {0}$ bill".format(self.ammount)
 
     def __hash__(self):
-        return self.ammount
+        return hash(self.ammount)
 
 #
 # ## The BatchBill class
@@ -114,22 +112,22 @@ class Bill:
 
 class BatchBill:
 
-    def __init__(self, Bills):
-        self.Bills = Bills
+    def __init__(self, bills):
+        self.bills = bills
 
     def __len__(self):
-        return len(self.Bills)
+        return len(self.bills)
 
     def total(self):
         total_bills = 0
 
-        for bill in self.Bills:
+        for bill in self.bills:
             total_bills += bill.ammount
 
         return total_bills
 
     def __getitem__(self, index):
-        return self.Bills[index]
+        return self.bills[index]
 
 
 # ## The CashDesk classs
@@ -192,6 +190,7 @@ class CashDesk:
     def inspect(self):
         response_first_line = "We have a total of {0}$ in the desk".format(self.total())
         response_second_line = "We have the following count of bills, sorted in ascending order:"
+        
         sorted_inside = collections.OrderedDict(sorted(self.inside.items()))
 
         response_third_line=""
