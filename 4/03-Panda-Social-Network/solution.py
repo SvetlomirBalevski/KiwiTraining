@@ -144,3 +144,24 @@ class PandaSocialNetwork:
             return True
 
 
+    def how_many_gender_in_network(self, level, panda, gender, counted_pandas=None):
+
+        counted_pandas = [] if counted_pandas is None else counted_pandas
+
+        number_of_genders = 0
+        counted_pandas.append(panda)
+
+        for single_panda in self.friends_of(panda):
+            if single_panda not in counted_pandas:
+                if single_panda.gender() == gender:
+                    number_of_genders += 1
+
+                if level > 1:
+                    number_of_genders += self.how_many_gender_in_network(level-1, single_panda, gender, counted_pandas)
+
+
+        return number_of_genders
+
+
+
+
