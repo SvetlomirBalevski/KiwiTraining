@@ -150,13 +150,13 @@ class BankAccount:
         if amount < 0:
             raise ValueError
         else:
-            if self.balance() < amount:
-                raise ValueError("Not enough money for transfer")
-            else:
-                self.withdraw(amount, False)
+            check_for_balance = self.withdraw(amount, False)
+            if check_for_balance:
                 account.deposit(amount, False)
+            else:
+                raise ValueError
 
-                self.log.append("Transfer to {0} for {1}{2}".format(account.name, amount, account.currency))
-                account.log.append("Transfer from {0} for {1}{2}".format(self.name, amount, account.currency))
+            self.log.append("Transfer to {0} for {1}{2}".format(account.name, amount, account.currency))
+            account.log.append("Transfer from {0} for {1}{2}".format(self.name, amount, account.currency))
 
         return True
