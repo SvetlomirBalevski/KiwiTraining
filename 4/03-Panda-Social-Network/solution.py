@@ -126,14 +126,21 @@ class PandaSocialNetwork:
 #   are in the network of `panda`, while counting `level` levels deep.
 #   If level == 2, we will have to look in all friends of `panda` and all of their friends too...
 
-    # def connection_level(self, panda1, panda2, level_of_connections = 1):
-    #     if self.are_friends(panda1, panda2):
-    #         return level_of_connections
-    #     elif level_of_connections > len(self.list_of_friendships):
-    #         return -1
-    #     else:
-    #         for pandas in self.friends_of(panda1):
-    #             level_of_connections +=1
-    #             self.connection_level(pandas,panda2,level_of_connections)
-    #
+    def connection_level(self, panda1, panda2, origin_panda1 = Panda("", "mmm@mmm.mmm", "")):
+
+        if not (self.has_panda(panda1) and self.has_panda(panda2)):
+            return False
+
+        if self.are_friends(panda1, panda2):
+            return 1
+        else:
+            for panda in self.friends_of(panda1):
+                if panda != origin_panda1:
+                    return 1 + self.connection_level(panda,panda2,panda1)
+            return -1
+
+    def are_connected(self, panda1, panda2):
+        if self.connection_level(panda1,panda2) > 0:
+            return True
+
 
