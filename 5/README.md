@@ -110,7 +110,7 @@ More general information about OOP can be found in [module04](../module04) of th
   * write tests for all of its functions. Use the
     `test_calculator.py::CalculatorTestCase::test_<function_name>` naming scheme for your
     test methods!
-   * Modify `calculator.py` to avoid executing the interactive commands when testing
+  * Modify `calculator.py` to avoid executing the interactive commands when testing
   * **TIP**: use `test.py` to verify that your tests are correct!
 
 
