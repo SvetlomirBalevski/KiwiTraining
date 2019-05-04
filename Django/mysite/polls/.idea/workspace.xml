@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="234cc296-d91b-4912-8579-f6edee2a659d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../4/01-Cash-Desk/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../4/01-Cash-Desk/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../4/01-Cash-Desk/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../4/01-Cash-Desk/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../4/02-Bank-Account/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../4/02-Bank-Account/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../4/03-Panda-Social-Network/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../4/03-Panda-Social-Network/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../5/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c35a04d5-bf45-4adf-ac1f-5324b8bf36bc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../4/01-Cash-Desk/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../4/01-Cash-Desk/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../4/01-Cash-Desk/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../4/01-Cash-Desk/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../4/02-Bank-Account/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../4/02-Bank-Account/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../4/03-Panda-Social-Network/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../4/03-Panda-Social-Network/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../5/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="1613877349">
+    <session id="1145477178">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="1" />
@@ -27,44 +27,51 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="1" />
+          <entry key="py" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="1" />
+          <entry key="Python" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="72" />
+          <entry key="py" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="72" />
+          <entry key="Python" value="9" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -85,6 +92,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -92,19 +100,14 @@
               <item name="polls" type="b2602c69:ProjectViewProjectNode" />
               <item name="polls" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="polls" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../django-tutorial/mysite/polls" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -123,11 +126,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="234cc296-d91b-4912-8579-f6edee2a659d" name="Default Changelist" comment="" />
-      <created>1556910012352</created>
+      <changelist id="c35a04d5-bf45-4adf-ac1f-5324b8bf36bc" name="Default Changelist" comment="" />
+      <created>1556911083880</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1556910012352</updated>
+      <updated>1556911083880</updated>
     </task>
     <servers />
   </component>
@@ -157,15 +160,18 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
